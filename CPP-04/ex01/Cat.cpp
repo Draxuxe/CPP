@@ -40,10 +40,10 @@ Brain *Cat::getBrain()
 	return (ideas);
 }
 
-Animal &Cat::operator=(Animal const &animal)
+Cat &Cat::operator=(Cat const &animal)
 {
-	std::cout << "je test" << std::endl;
-	(*this).type = animal.getType();
-	(*this).ideas = animal.getBrain();
+	std::cout << "Cat surchaged operator = called." << std::endl;
+	this->type = animal.getType();
+	*(this->ideas) = *(animal.ideas);
 	return (*this);
 }

@@ -19,26 +19,46 @@
 
 int main()
 {
+	// LIST
 	const Animal* meta[5];
-	Brain dogBrain;
-	Brain catBrain;
 
+	std::cout << "ANIAML LIST :" << std::endl;
 	for (int i = 0; i < 5; i ++)
 	{
-		//if (i % 2 == 0)
-		//	meta[i] = new Dog();
-		//else
+		if (i % 2 == 0)
+			meta[i] = new Dog();
+		else
 			meta[i] = new Cat();
 	}
-	//dogBrain = meta[0]->getBrain();
-	catBrain = meta[1]->getBrain();
-	std::cout << dogBrain.ideas[0] << std::endl;
-	std::cout << catBrain.ideas[0] << std::endl;
-	std::cout << "LIST :" << std::endl;
 	for (int i = 0; i < 5; i ++)
 	{
 		std::cout << "	" << meta[i]->getType() << std::endl;
 		delete meta[i];
 	}
-	return 0;
+
+	std::cout << std::endl;
+
+	// COPIE
+	std::cout << "DEEP COPY :" << std::endl;
+	Dog dog1;
+	Dog dog2;
+
+	dog1.printIdeas();
+	dog2.printIdeas();
+
+	dog1 = dog2;
+	dog1.printIdeas();
+	dog2.printIdeas();
+
+	std::cout << std::endl;
+
+	// LEAKS
+	std::cout << "LEAKS :" << std::endl;
+	const Animal	*dog = new Dog();
+	const Animal	*cat = new Cat();
+
+	delete dog;
+	delete cat;
+
+	return (0);
 }

@@ -21,7 +21,9 @@ class Brain
 		Brain();
 		~Brain();
 
-		Brain &operator=(Brain const &) const;
+		std::string whatIThink (int len);
+		void printMyFirstIdeas () const;
+		Brain &operator=(Brain const &);
 
 	private :
 		std::string ideas[100];

@@ -30,6 +30,14 @@ Dog::~Dog()
 	return ;
 }
 
+Dog &Dog::operator=(Dog const &animal)
+{
+	std::cout << "Dog surchage operator called." << std::endl;
+	this->type = animal.getType();
+	*(this->ideas) = *(animal.ideas);
+	return (*this);
+}
+
 void Dog::makeSound() const
 {
 	std::cout << "Ouaf Ouaf" << std::endl;
@@ -39,4 +47,10 @@ void Dog::makeSound() const
 Brain *Dog::getBrain()
 {
 	return (ideas);
+}
+
+void Dog::printIdeas() const
+{
+	this->ideas->printMyFirstIdeas();
+	return ;
 }
