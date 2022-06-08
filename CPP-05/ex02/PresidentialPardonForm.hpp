@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/20 11:04:05 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/06/08 11:25:23 by lfilloux         ###   ########.fr       */
+/*   Created: 2022/06/08 11:12:09 by lfilloux          #+#    #+#             */
+/*   Updated: 2022/06/08 15:18:59 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef PRESIDENTIALPARDONFORM_HPP
+# define PRESIDENTIALPARDONFORM_HPP
 
-int	main(void)
+# include <string>
+# include "Form.hpp"
+
+class Bureaucrat;
+
+class PresidentialPardonForm : public Form
 {
-	Zombie mickael = Zombie ("Mickael");
-	Zombie *bob = zombieHorde (10, "Bob");
-	mickael.announce ();
-	for (int i = 0; i < 10; i ++)
-		bob[i].announce ();
-	delete[] bob;
-	/*
-	Zombie *plop = zombieHorde (3, "Plop");
-	for (int i = 0; i < 3; i ++)
-		plop[i].announce ();
-	delete[] plop;
-	*/
-	return (0);
-}
+	public :
+		PresidentialPardonForm();
+		PresidentialPardonForm(std::string const &);
+		virtual ~PresidentialPardonForm();
+
+	private :
+		void getExecute() const;
+};
+
+#endif
