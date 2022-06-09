@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 14:38:49 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/05/24 14:41:08 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/06/09 13:29:23 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int main(int ac, char **av)
 		std::ofstream output_file(filename + ".replace");
 		if (!output_file)
 		{
-			std::cout << "An error has occured" << std::endl;
+			std::cout << "An error has occured." << std::endl;
 			return (-1);
 		}
 		while (std::getline(input_file, new_line))
