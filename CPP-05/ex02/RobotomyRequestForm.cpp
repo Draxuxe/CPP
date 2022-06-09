@@ -6,12 +6,13 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 11:12:04 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/06/08 16:05:21 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/06/09 11:19:45 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
+#include <cstdlib>
 #include "RobotomyRequestForm.hpp"
 #include "Bureaucrat.hpp"
 
@@ -36,7 +37,8 @@ RobotomyRequestForm::~RobotomyRequestForm()
 void RobotomyRequestForm::getExecute() const
 {
 	std::cout << "Bzzzzzz Bzzzzzz *drill noises* ";
-	if (rand() % 2) // tjrs meme resultat
+	int x = rand() % 2;
+	if (x == 1)
 		std::cout << getName() << " has been robotomised." << std::endl;
 	else
 		std::cout << getName() << " is a failure. He wasn't robotomised." << std::endl;
