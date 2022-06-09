@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 11:43:15 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/06/09 13:48:35 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/06/09 14:19:33 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,7 @@ Form *Intern::makeForm (std::string formName, std::string bureaucrat)
 		}
 	}
 	if (i == 3)
-	{
 		std::cout << "This form doesn't exist. I'm Sorry." << std::endl;
-		return (NULL);
-	}
 	return (NULL);
 }
 

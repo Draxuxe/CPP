@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 11:13:28 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/06/09 14:01:59 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/06/09 14:18:34 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@ int main()
 	Intern stagiaire;
 	Form *rrf;
 
-	rrf = stagiaire.makeForm("presidential pardon", "Bob");
-	rrf->getExecute();
+	rrf = stagiaire.makeForm("robotomy request", "Bob");
+	if (rrf)
+		rrf->getExecute();
 
 	// ALL OTHER TESTS FROM THE EXECRCISES FROM BEFORE
 /*	Bureaucrat boss(1, "Boss");
