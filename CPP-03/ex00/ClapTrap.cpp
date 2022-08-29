@@ -25,6 +25,12 @@ ClapTrap::ClapTrap (std::string name) : _name(name), hp(10), energie(10), dealt(
 	return ;
 }
 
+ClapTrap::ClapTrap (const ClapTrap &claptrap) : _name(claptrap._name), hp(claptrap.hp), energie(claptrap.energie), dealt(claptrap.dealt)
+{
+	std::cout << "ClapTrap Copy constructor called." << std::endl;
+	return ;
+}
+
 ClapTrap::~ClapTrap ()
 {
 	std::cout << "Destructor has been called." << std::endl;
@@ -84,6 +90,18 @@ void ClapTrap::displayInfo (std::ostream &out)
 	else
 		out << "Dead.";
 	return ;
+}
+
+ClapTrap &ClapTrap::operator= (const ClapTrap &claptrap)
+{
+	if (this == &claptrap)
+		return (*this);
+	std::cout << "Copy assignement ClapTrap constructor called." << std::endl;
+	_name = claptrap._name;
+	hp = claptrap.hp;
+	energie = claptrap.energie;
+	dealt = claptrap.dealt;
+	return (*this);
 }
 
 std::ostream &operator << (std::ostream &out, ClapTrap& heroe)

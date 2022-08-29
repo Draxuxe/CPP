@@ -22,6 +22,7 @@ class Form
 	public :
 		Form();
 		Form(std::string, int, int);
+		Form(const Form &);
 		~Form();
 
 		std::string getName() const;

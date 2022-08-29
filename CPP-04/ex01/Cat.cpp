@@ -22,6 +22,16 @@ Cat::Cat()
 	return ;
 }
 
+Cat::Cat (const Cat &cat) : Animal()
+{
+	std::cout << "Cat copy constructor called." << std::endl;
+	this->type = cat.getType();
+	this->ideas = new Brain();
+	for (int i = 0; i < 100; i ++)
+		this->ideas->setIdeas(i, cat.ideas->getIdea(i));
+	*this = cat;
+}
+
 Cat::~Cat()
 {
 	std::cout << "Cat destructor called." << std::endl;
@@ -42,8 +52,16 @@ Brain *Cat::getBrain()
 
 Cat &Cat::operator=(Cat const &animal)
 {
+	if (this == &animal)
+		return (*this);
 	std::cout << "Cat surchaged operator = called." << std::endl;
 	this->type = animal.getType();
 	*(this->ideas) = *(animal.ideas);
 	return (*this);
+}
+
+void Cat::printIdeas() const
+{
+	this->ideas->printMyFirstIdeas();
+	return ;
 }

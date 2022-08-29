@@ -34,6 +34,8 @@ Fixed::Fixed (const Fixed &nb)
 
 Fixed &Fixed::operator=(const Fixed &nb)
 {
+	if (this == &nb)
+		return (*this);
 	std::cout << "Copy assignement operator called" << std::endl;
 	setRawBits (nb.value);
 	value = getRawBits();

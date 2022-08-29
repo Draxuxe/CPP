@@ -47,8 +47,10 @@ Fixed::~Fixed ()
 	return ;
 }
 
-Fixed &Fixed::operator=(const Fixed &nb)
+Fixed &Fixed::operator= (const Fixed &nb)
 {
+	if (this == &nb)
+		return (*this);
 	//std::cout << "Copy assignement operator called" << std::endl;
 	value = nb.value;
 	return (*this);

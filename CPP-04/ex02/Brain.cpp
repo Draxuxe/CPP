@@ -22,6 +22,14 @@ Brain::Brain()
 	return ;
 }
 
+Brain::Brain(const Brain &brain)
+{
+	std::cout << "Brain copy constructor called" << std::endl;
+	for (int i = 0; i < 100; i ++)
+		this->ideas[i] = brain.ideas[i];
+	return ;
+}
+
 Brain::~Brain()
 {
 	std::cout << "Brain destructor called." << std::endl;
@@ -52,4 +60,23 @@ void Brain::printMyFirstIdeas () const
 	for (int i = 0; i < 3; i ++)
 		std::cout << "IDEA NB :" << i << " " << this->ideas[i] << std::endl;
 	return ;
+}
+
+std::string const Brain::getIdea (int i)
+{
+	if (i < 0 && i > 99)
+	{
+		std::cout << "No such ideas." << std::endl;
+		return ("ERROR");
+	}
+	else
+		return (this->ideas[i]);
+}
+
+void Brain::setIdeas (int i, std::string const idea)
+{
+	if (i > -1 && i < 100)
+		this->ideas[i] = idea;
+	else
+		std::cout << "No such ideas." << std::endl;
 }

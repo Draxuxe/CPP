@@ -22,6 +22,10 @@ int main (void)
 	ClapTrap trap("Real");
 	FragTrap fake;
 	DiamondTrap test("test");
+	{
+		DiamondTrap te = test;
+		std::cout << te << std::endl;
+	}
 
 	std::cout << scav << std::endl;
 	std::cout << trap << std::endl;

@@ -21,6 +21,7 @@ class Bureaucrat
 		Bureaucrat();
 		Bureaucrat(std::string);
 		Bureaucrat(int, std::string);
+		Bureaucrat(const Bureaucrat &);
 		~Bureaucrat();
 
 		std::string getName() const;

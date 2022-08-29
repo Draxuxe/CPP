@@ -13,6 +13,7 @@
 #include <iostream>
 #include <string>
 #include "Brain.hpp"
+#include "Animal.hpp"
 #include "Dog.hpp"
 
 Dog::Dog()
@@ -21,6 +22,16 @@ Dog::Dog()
 	ideas = new Brain();
 	std::cout << "Dog constructor called." << std::endl;
 	return ;
+}
+
+Dog::Dog(const Dog &dog) : Animal()
+{
+	std::cout << "Dog copy constructor called." << std::endl;
+	this->type = dog.getType();
+	this->ideas = new Brain();
+	for (int i = 0; i < 100; i ++)
+		this->ideas->setIdeas(i, dog.ideas->getIdea(i));
+	*this = dog;
 }
 
 Dog::~Dog()
@@ -32,7 +43,9 @@ Dog::~Dog()
 
 Dog &Dog::operator=(Dog const &animal)
 {
-	std::cout << "Dog surchage operator called." << std::endl;
+	if (this == &animal)
+		return (*this);
+	std::cout << "Dog surchage operator = called." << std::endl;
 	this->type = animal.getType();
 	*(this->ideas) = *(animal.ideas);
 	return (*this);

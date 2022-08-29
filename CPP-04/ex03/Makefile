@@ -11,10 +11,10 @@
 # **************************************************************************** #
 
 NAME = materia
-HEADER_FILES = ICharacter.hpp Character.hpp
-SRC_FILES = main.cpp ICharacter.cpp Character.cpp
+HEADER_FILES = ICharacter.hpp Character.hpp AMateria.hpp Cure.hpp Ice.hpp IMateriaSource.hpp MateriaSource.hpp
+SRC_FILES = main.cpp Character.cpp Ice.cpp Cure.cpp AMateria.cpp MateriaSource.cpp
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
-CPP = g++
+CPP = c++
 CPP_FLAGS =  -Wall -Wextra -Werror --std=c++98
 
 all: $(NAME)

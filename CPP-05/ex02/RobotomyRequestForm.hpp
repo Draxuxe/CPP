@@ -23,6 +23,7 @@ class RobotomyRequestForm : public Form
 	public :
 		RobotomyRequestForm();
 		RobotomyRequestForm(std::string const &);
+		RobotomyRequestForm(const RobotomyRequestForm &);
 		virtual ~RobotomyRequestForm();
 
 	private :

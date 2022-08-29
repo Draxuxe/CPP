@@ -42,15 +42,13 @@ int main()
 
 	// COPIE
 	std::cout << "DEEP COPY :" << std::endl;
+
 	Dog dog1;
-	Dog dog2;
-
-	dog1.printIdeas();
-	dog2.printIdeas();
-
-	dog1 = dog2;
-	dog1.printIdeas();
-	dog2.printIdeas();
+	{
+		Dog dog2 = dog1;
+		dog1.printIdeas();
+		dog2.printIdeas();
+	}
 
 	std::cout << std::endl;
 

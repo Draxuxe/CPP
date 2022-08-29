@@ -19,7 +19,7 @@ ClapTrap::ClapTrap () : _name("Default"), hp(10), energie(10), dealt(0)
 	return ;
 }
 
-ClapTrap::ClapTrap (int _hp, int _energie,  int _dealt) : _name("Deafult"), hp(_hp), energie(_energie), dealt(_dealt)
+ClapTrap::ClapTrap (int _hp, int _energie,  int _dealt) : _name("Default"), hp(_hp), energie(_energie), dealt(_dealt)
 {
 	std::cout << "Constructor has been called." << std::endl;
 	return ;
@@ -34,6 +34,12 @@ ClapTrap::ClapTrap (std::string name) : _name(name), hp(10), energie(10), dealt(
 ClapTrap::ClapTrap (std::string name, int _hp, int _energie,  int _dealt) : _name(name), hp(_hp), energie(_energie), dealt(_dealt)
 {
 	std::cout << "Constructor has been called." << std::endl;
+	return ;
+}
+
+ClapTrap::ClapTrap (const ClapTrap &claptrap) : _name(claptrap._name), hp(claptrap.hp), energie(claptrap.energie), dealt(claptrap.dealt)
+{
+	std::cout << "ClapTrap Copy constructor called." << std::endl;
 	return ;
 }
 
@@ -96,6 +102,18 @@ void ClapTrap::displayInfo (std::ostream &out)
 	else
 		out << "Dead.";
 	return ;
+}
+
+ClapTrap &ClapTrap::operator= (const ClapTrap &claptrap)
+{
+	if (this == &claptrap)
+		return (*this);
+	std::cout << "Copy assignement ClapTrap constructor called." << std::endl;
+	_name = claptrap._name;
+	hp = claptrap.hp;
+	energie = claptrap.energie;
+	dealt = claptrap.dealt;
+	return (*this);
 }
 
 std::ostream &operator << (std::ostream &out, ClapTrap& heroe)

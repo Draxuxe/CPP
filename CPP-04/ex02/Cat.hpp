@@ -20,10 +20,11 @@ class Cat: public AAnimal
 {
 	public :
 		Cat();
+		Cat(const Cat &);
 		~Cat();
 
 		void makeSound() const;
-		Cat &operator=(Cat const &);
+		Cat &operator= (Cat const &);
 		virtual Brain *getBrain();
 
 	private:

@@ -20,6 +20,7 @@ class Intern
 {
 	public :
 		Intern();
+		Intern(const Intern &);
 		~Intern();
 
 		Form *PresidentialPardon(std::string);

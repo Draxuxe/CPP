@@ -14,7 +14,7 @@ NAME = phonebook
 HEADER_FILES = PhoneBook.hpp Contact.hpp
 SRC_FILES = main.cpp PhoneBook.cpp Contact.cpp
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
-CPP = g++
+CPP = c++
 CPP_FLAGS =  -Wall -Wextra -Werror --std=c++98
 
 all: $(NAME)

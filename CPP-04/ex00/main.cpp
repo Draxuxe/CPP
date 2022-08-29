@@ -33,5 +33,10 @@ int main()
 	meta->makeSound();
 	wrongMeta->makeSound();
 	h->makeSound();
-	return 0;
+	delete meta;
+	delete wrongMeta;
+	delete j;
+	delete i;
+	delete h;
+	return (0);
 }

@@ -23,6 +23,7 @@ class PresidentialPardonForm : public Form
 	public :
 		PresidentialPardonForm();
 		PresidentialPardonForm(std::string const &);
+		PresidentialPardonForm(const PresidentialPardonForm &);
 		virtual ~PresidentialPardonForm();
 
 	private :

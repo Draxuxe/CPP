@@ -23,6 +23,7 @@ class ShrubberyCreationForm : public Form
 	public :
 		ShrubberyCreationForm ();
 		ShrubberyCreationForm (std::string const &);
+		ShrubberyCreationForm (const ShrubberyCreationForm &);
 		virtual ~ShrubberyCreationForm ();
 
 	private :

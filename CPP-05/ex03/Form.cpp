@@ -47,6 +47,12 @@ Form::Form(std::string name, int signeGrade, int execute) : _name(name)
 	return ;
 }
 
+Form::Form(const Form &form) : _name(form._name), signe(form.signe), signedGrade(form.signedGrade), executeGrade(form.executeGrade)
+{
+	std::cout << "Form copy constructor called" << std::endl;
+	return ;
+}
+
 Form::~Form()
 {
 	std::cout << "Form destructor called." << std::endl;

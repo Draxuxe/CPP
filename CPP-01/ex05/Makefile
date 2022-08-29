@@ -14,7 +14,7 @@ NAME = harl2.0
 HEADER_FILES = Harl.hpp
 SRC_FILES = main.cpp Harl.cpp
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
-CPP = g++
+CPP = c++
 CPP_FLAGS =  -Wall -Wextra -Werror --std=c++98
 
 all: $(NAME)

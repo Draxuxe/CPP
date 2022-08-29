@@ -15,6 +15,7 @@
 
 # include <string>
 # include "ICharacter.hpp"
+# include "AMateria.hpp"
 
 class Character : public ICharacter
 {
@@ -23,7 +24,16 @@ class Character : public ICharacter
 		Character(std::string);
 		~Character();
 
+		std::string const & getName() const;
+		void equip(AMateria* m);
+		void unequip(int idx);
+		void use(int idx, ICharacter& target);
+
+		Character &operator= (const Character &);
+
+	private :
 		std::string _name;
+		AMateria *materias[4];
 };
 
 #endif

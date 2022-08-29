@@ -28,6 +28,16 @@ RobotomyRequestForm::RobotomyRequestForm(std::string const &target) : Form (targ
 	return ;
 }
 
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &robot) : Form()
+{
+	std::cout << "RobotomyRequestForm copy constructor called." << std::endl;
+	this->_name = robot._name;
+	this->signe = robot.signe;
+	this->signedGrade = robot.signedGrade;
+	this->executeGrade = robot.executeGrade;
+	return ;
+}
+
 RobotomyRequestForm::~RobotomyRequestForm()
 {
 	std::cout << "RobotomyRequestForm destructor called." << std::endl;

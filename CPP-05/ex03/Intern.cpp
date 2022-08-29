@@ -27,6 +27,15 @@ Intern::Intern ()
 	return ;
 }
 
+Intern::Intern (const Intern &intern)
+{
+	std::cout << "Intern copy constructor called" << std::endl;
+	this->function[0] = intern.function[0];
+	this->function[1] = intern.function[1];
+	this->function[2] = intern.function[2];
+	return ;
+}
+
 Intern::~Intern ()
 {
 	std::cout << "Intern destructor called." << std::endl;

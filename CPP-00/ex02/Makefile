@@ -14,7 +14,7 @@ NAME = restored
 HEADER_FILES = Account.hpp
 SRC_FILES = Account.cpp tests.cpp
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
-CPP = g++
+CPP = c++
 CPP_FLAGS =  -Wall -Wextra -Werror --std=c++98
 
 all: $(NAME)

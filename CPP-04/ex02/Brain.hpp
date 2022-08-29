@@ -19,11 +19,14 @@ class Brain
 {
 	public :
 		Brain();
+		Brain(const Brain &);
 		~Brain();
 
 		std::string whatIThink (int len);
 		void printMyFirstIdeas () const;
 		Brain &operator=(Brain const &);
+		void setIdeas (int, std::string const);
+		std::string const getIdea (int);
 
 	private :
 		std::string ideas[100];

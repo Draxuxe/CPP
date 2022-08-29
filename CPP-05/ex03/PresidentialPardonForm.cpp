@@ -27,6 +27,16 @@ PresidentialPardonForm::PresidentialPardonForm(std::string const &target) : Form
 	return ;
 }
 
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &president) : Form()
+{
+	std::cout << "PresidentialPardonForm copy constructor called." << std::endl;
+	this->_name = president._name;
+	this->signe = president.signe;
+	this->signedGrade = president.signedGrade;
+	this->executeGrade = president.executeGrade;
+	return ;
+}
+
 PresidentialPardonForm::~PresidentialPardonForm()
 {
 	std::cout << "PresidentialPardonForm destructor called." << std::endl;

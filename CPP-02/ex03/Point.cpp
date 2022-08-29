@@ -53,7 +53,8 @@ Point::Point (const Point &nb) : x(nb.x), y(nb.y)
 
 Point &Point::operator=(const Point &nb)
 {
+	if (this == &nb)
+		return (*this);
 	std::cout << "Copy assignement operator called" << std::endl;
-	(void) nb;
 	return (*this);
 }

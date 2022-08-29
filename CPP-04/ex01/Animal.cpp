@@ -20,10 +20,9 @@ Animal::Animal()
 	return ;
 }
 
-Animal::Animal(Animal const &animal)
+Animal::Animal(Animal const &animal) : type(animal.type)
 {
 	std::cout << "Copy animal constructor called." << std::endl;
-	*this = animal;
 	return ;
 }
 
@@ -42,4 +41,13 @@ void Animal::makeSound() const
 {
 	std::cout << "I don't know what I am. What sound should I make?" << std::endl;
 	return ;
+}
+
+Animal &Animal::operator= (const Animal &animal)
+{
+	if (this == &animal)
+		return (*this);
+	std::cout << "Animal copy assignement constructor called." << std::endl;
+	type = animal.type;
+	return (*this);
 }

@@ -20,6 +20,12 @@ Cat::Cat()
 	return ;
 }
 
+Cat::Cat(const Cat &cat) : Animal(cat)
+{
+	std::cout << "Cat copy constructor called" << std::endl;
+	return ;
+}
+
 Cat::~Cat()
 {
 	std::cout << "Cat destructor called." << std::endl;
@@ -30,4 +36,13 @@ void Cat::makeSound() const
 {
 	std::cout << "Meow Meow" << std::endl;
 	return ;
+}
+
+Cat &Cat::operator= (const Cat &cat)
+{
+	if (this == &cat)
+		return (*this);
+	std::cout << "Cat surchaged operator called." << std::endl;
+	type = cat.type;
+	return (*this);
 }

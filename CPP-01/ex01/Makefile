@@ -14,7 +14,7 @@ NAME = moar_brainz
 HEADER_FILES = Zombie.hpp
 SRC_FILES = main.cpp Zombie.cpp zombieHorde.cpp
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
-CPP = g++
+CPP = c++
 CPP_FLAGS =  -Wall -Wextra -Werror --std=c++98
 
 all: $(NAME)

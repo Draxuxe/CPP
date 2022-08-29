@@ -16,7 +16,7 @@
 
 AMateria::AMateria()
 {
-	_type = "";
+	_type = "None";
 	std::cout << "AMateria constructor called." << std::endl;
 	return ;
 }
@@ -24,7 +24,7 @@ AMateria::AMateria()
 AMateria::AMateria(std::string const &type)
 {
 	_type = type;
-	std::cout << "AMateria string constructor called." << std::endl;
+	std::cout << "AMateria type constructor called." << std::endl;
 	return ;
 }
 
@@ -37,13 +37,4 @@ AMateria::~AMateria()
 std::string const &AMateria::getType() const
 {
 	return (_type);
-}
-
-void AMateria::use (ICharacter &target)
-{
-	if (_type == "Ice")
-		std::cout << "* shoots an ice bolt at " << target.name << std::endl;
-	else if (_type == "Cure")
-		std::cout << "* heals " << target.name << "'s wounds." << std::endl;
-	return ;
 }

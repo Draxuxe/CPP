@@ -15,6 +15,7 @@
 #include "DiamondTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "ClapTrap.hpp"
 
 DiamondTrap::DiamondTrap() : _name("Default")
 {
@@ -25,6 +26,16 @@ DiamondTrap::DiamondTrap() : _name("Default")
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name", 100, 50, 30), _name(name)
 {
 	std::cout << "DiamondTrap name constructor called." << std::endl;
+	return ;
+}
+
+DiamondTrap::DiamondTrap( const DiamondTrap &diamondtrap)
+{
+	_name = diamondtrap._name;
+	hp = diamondtrap.hp;
+	energie =  diamondtrap.energie;
+	dealt =  diamondtrap.dealt;
+	std::cout << "DiamondTrap copy constructor is called" << std::endl;
 	return ;
 }
 
@@ -54,6 +65,15 @@ void DiamondTrap::displayInfo (std::ostream &out)
 	else
 		out << "Dead.";
 	return ;
+}
+
+DiamondTrap &DiamondTrap::operator= (const DiamondTrap &diamontrap)
+{
+	if (this == &diamontrap)
+		return (*this);
+	std::cout << "Copy assignement DiamondTrap constructor called." << std::endl;
+	_name = diamontrap._name;
+	return (*this);
 }
 
 std::ostream &operator << (std::ostream &out, DiamondTrap& heroe)

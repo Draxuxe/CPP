@@ -20,11 +20,13 @@ class Cat: public Animal
 {
 	public :
 		Cat();
+		Cat (const Cat &);
 		~Cat();
 
 		void makeSound() const;
 		Cat &operator=(Cat const &);
 		virtual Brain *getBrain();
+		void printIdeas() const;
 
 	private:
 		Brain *ideas;

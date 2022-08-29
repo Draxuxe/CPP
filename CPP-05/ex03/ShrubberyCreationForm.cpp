@@ -28,6 +28,16 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target) : Form (
 	return ;
 }
 
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &shrub) : Form()
+{
+	std::cout << "ShrubberyCreationForm copy constructor called." << std::endl;
+	this->_name = shrub._name;
+	this->signe = shrub.signe;
+	this->signedGrade = shrub.signedGrade;
+	this->executeGrade = shrub.executeGrade;
+	return ;
+}
+
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 	std::cout << "ShrubberyCreationForm destructor called." << std::endl;

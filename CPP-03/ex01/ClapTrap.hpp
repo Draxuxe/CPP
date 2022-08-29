@@ -22,7 +22,10 @@ class ClapTrap
 		ClapTrap(int, int, int);
 		ClapTrap(std::string);
 		ClapTrap(std::string, int, int, int);
+		ClapTrap(const ClapTrap &);
 		~ClapTrap();
+
+		ClapTrap &operator= (const ClapTrap &);
 
 		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);

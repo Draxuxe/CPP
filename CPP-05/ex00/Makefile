@@ -14,7 +14,7 @@ NAME = bureaucrat
 HEADER_FILES = Bureaucrat.hpp
 SRC_FILES = main.cpp Bureaucrat.cpp
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
-CPP = g++
+CPP = c++
 CPP_FLAGS =  -Wall -Wextra -Werror --std=c++98
 
 all: $(NAME)

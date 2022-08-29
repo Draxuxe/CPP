@@ -12,6 +12,7 @@
 
 #include <iostream>
 #include "Brain.hpp"
+#include "AAnimal.hpp"
 #include "Cat.hpp"
 
 Cat::Cat()
@@ -20,6 +21,16 @@ Cat::Cat()
 	ideas = new Brain();
 	std::cout << "Cat constructor called." << std::endl;
 	return ;
+}
+
+Cat::Cat (const Cat &cat) : AAnimal()
+{
+	std::cout << "Cat copy constructor called." << std::endl;
+	this->type = cat.getType();
+	this->ideas = new Brain();
+	for (int i = 0; i < 100; i ++)
+		this->ideas->setIdeas(i, cat.ideas->getIdea(i));
+	*this = cat;
 }
 
 Cat::~Cat()
@@ -42,7 +53,9 @@ Brain *Cat::getBrain()
 
 Cat &Cat::operator=(Cat const &animal)
 {
-	std::cout << "Cat surchaged operator = called." << std::endl;
+	if (this == &animal)
+		return (*this);
+	std::cout << "Cat surchaged copy assignement constructor called." << std::endl;
 	this->type = animal.getType();
 	*(this->ideas) = *(animal.ideas);
 	return (*this);
