@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 15:55:47 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/06/01 15:05:18 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/27 15:02:39 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ class ScavTrap : public ClapTrap
 		ScavTrap &operator= (const ScavTrap &);
 
 		void attack(const std::string& target);
-		void takeDamage(unsigned int amount);
-		void beRepaired(unsigned int amount);
 		void guardGate ();
 };
 

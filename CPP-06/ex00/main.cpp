@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 10:28:39 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/09/22 18:25:38 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/27 18:55:01 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int isInt(std::string arg, const char *av)
 {
 	if (arg[0] == '-')
 	{
+		if (arg.length() > 11)
+			return (-1);
 		for (long unsigned int i = 1; i < arg.length(); i ++)
 			if (!std::isdigit(arg[i]))
 				return (-1);
@@ -38,6 +40,8 @@ int isInt(std::string arg, const char *av)
 	}
 	else
 	{
+		if (arg.length() > 10)
+			return (-1);
 		for (long unsigned int i = 0; i < arg.length(); i ++)
 			if (!std::isdigit(arg[i]))
 				return (-1);
@@ -118,7 +122,7 @@ t_type findType (std::string arg, const char *av)
 
 void printChar (char char_, int int_)
 {
-	if (int_ >= 0 && int_ <= 31)
+	if ((int_ >= 0 && int_ <= 31) || (int_ >= 127 && int_ <= 255))
 		std::cout << "CHAR: Non displayable" << std::endl;
 	else if (int_ < 0 || int_ > 255)
 		std::cout << "CHAR: Impossible" << std::endl;

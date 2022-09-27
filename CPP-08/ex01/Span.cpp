@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 18:19:54 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/09/27 11:17:28 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/27 16:25:01 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,17 +112,4 @@ int Span::longestSpan ()
 			shortest = *i;
 	}
 	return (longest - shortest);
-}
-
-void Span::addNumbers (int start, int end)
-{
-	if (this->_size == 0)
-		throw Span::NoSpan();
-	std::cout << "TEST" << std::endl;
-	for (int i = start; i <= end; i++)
-	{
-		if (this->list->size() == this->_size)
-			throw Span::ListComplete();
-		this->list->push_back(i);
-	}
 }

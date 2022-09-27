@@ -6,14 +6,14 @@
 #    By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/10 14:00:33 by lfilloux          #+#    #+#              #
-#    Updated: 2022/09/22 18:29:21 by lfilloux         ###   ########.fr        #
+#    Updated: 2022/09/27 15:45:51 by lfilloux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = serialisation
 SRC_FILES = main.cpp
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
-CPP = g++
+CPP = c++
 CPP_FLAGS =  -Wall -Wextra -Werror --std=c++98
 
 all: $(NAME)

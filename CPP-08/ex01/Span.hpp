@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 18:19:18 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/09/27 11:11:25 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/27 16:32:33 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,19 @@ class Span
 		Span &operator= (const Span &);
 
 		void addNumber (int);
-		void addNumbers (int, int);
+		template <typename T>
+		void addNumbers (T start, T end)
+		{
+			if (_size == 0)
+				throw NoSpan();
+			for (T i = start; i != end; i++)
+			{
+				if (this->list->size() == this->_size)
+					throw ListComplete();
+				addNumber(*i);
+			}
+			return ;
+		}
 		int shortestSpan ();
 		int longestSpan ();
 		std::vector<int> getList();

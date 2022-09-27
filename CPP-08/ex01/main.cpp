@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 18:15:50 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/09/27 11:18:20 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/27 16:33:15 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ int main()
 		sp.addNumber(9);
 		sp.addNumber(170);
 
-		sp1.addNumbers(40, 50); // Throw an error size exceeded
+		int tab[] = { 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121};
+		sp1.addNumbers(tab, tab + (sizeof(tab) / sizeof(tab[0]))); // Throw an error size exceeded
 		sp.addNumber(53); /* Throw an error size exceeded
 							but will not be test cause already
 							an error before */

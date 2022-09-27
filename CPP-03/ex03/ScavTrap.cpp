@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 15:55:45 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/06/01 13:15:38 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/27 15:02:31 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,34 +41,6 @@ ScavTrap::~ScavTrap ()
 void ScavTrap::guardGate ()
 {
 	std::cout << _name << " is now in Gate Keeper mode. Watch Out!" << std::endl;
-}
-
-void ScavTrap::takeDamage (unsigned int amount)
-{
-	hp -= amount;
-	if (hp <= 0)
-		std::cout << _name << " is dead!" << std::endl;
-	else if (hp > 0)
-		std::cout << _name << " took " << amount << " dmg, he is now at " << hp << "hp." << std::endl;
-	return ;
-}
-
-void ScavTrap::beRepaired (unsigned int amount)
-{
-	if (hp <= 0)
-	{
-		std::cout << _name << " is dead. He can't do anything.." << std::endl;
-		return ;
-	}
-	else if (energie - 1 < 0)
-	{
-		std::cout << _name << " energie point are at 0. He is now useless..." << std::endl;
-		return ;
-	}
-	hp += amount;
-	energie -= 1;
-	std::cout << _name << " healed " << amount << " dmg, he is now at " << hp << "hp." << std::endl;
-	return ;
 }
 
 void ScavTrap::attack (const std::string& target)
