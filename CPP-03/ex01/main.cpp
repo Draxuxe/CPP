@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 13:58:22 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/06/01 15:46:05 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/20 17:31:38 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int main (void)
 	fake.takeDamage(11);
 	fake.beRepaired(11);
 	trap.attack("Bobby");
+	fake = scav;
 	scav.guardGate();
 	scav.takeDamage(59);
 	scav.takeDamage(59);

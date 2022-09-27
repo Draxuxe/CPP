@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 11:12:55 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/06/07 16:37:20 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/22 15:16:13 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ class Bureaucrat
 		Bureaucrat(const Bureaucrat &);
 		~Bureaucrat();
 
+		Bureaucrat &operator= (const Bureaucrat &);
+
 		std::string getName() const;
 		int getGrade() const;
 
@@ -33,9 +35,6 @@ class Bureaucrat
 
 		void Promoted ();
 		void Retrograded ();
-
-		void GradeTooHighException ();
-		void GradeTooLowException ();
 
 		void displayInfo (std::ostream &);
 

@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 15:16:27 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/06/01 16:01:47 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/20 16:11:08 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,61 @@ Contact::Contact ()
 Contact::~Contact ()
 {
 	return ;
+}
+
+void Contact::setName (std::string name)
+{
+	this->first_name = name;
+	return ;
+}
+
+void Contact::setLastName (std::string lastName)
+{
+	this->last_name = lastName;
+	return ;
+}
+
+void Contact::setNickname (std::string nickname)
+{
+	this->nickname = nickname;
+	return ;
+}
+
+void Contact::setNumber (std::string number)
+{
+	this->phone_number = number;
+	return ;
+}
+
+void Contact::setSecret (std::string secret)
+{
+	this->secret = secret;
+	return ;
+}
+
+std::string Contact::getName ()
+{
+	return (first_name);
+}
+
+std::string Contact::getLastName ()
+{
+	return (last_name);
+}
+
+std::string Contact::getNickname ()
+{
+	return (nickname);
+}
+
+std::string Contact::getNumber ()
+{
+	return (phone_number);
+}
+
+std::string Contact::getSecret ()
+{
+	return (secret);
 }
 
 Contact Contact::fillInfo ()
@@ -91,11 +146,11 @@ Contact Contact::fillInfo ()
 		std::cout << "The Phonebook was interrupted." << std::endl;
 		exit (i);
 	}
-	new_contact.first_name = first;
-	new_contact.last_name = last;
-	new_contact.nickname = surname;
-	new_contact.phone_number = num;
-	new_contact.secret = secrets;
+	new_contact.setName(first);
+	new_contact.setLastName(last);
+	new_contact.setNickname(surname);
+	new_contact.setNumber(num);
+	new_contact.setSecret(secrets);
 	return (new_contact);
 }
 

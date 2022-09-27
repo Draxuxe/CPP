@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 10:26:20 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/05/25 15:52:23 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/21 10:33:59 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,11 @@ Fixed Fixed::operator*(const Fixed &nb) const
 Fixed Fixed::operator/(const Fixed &nb) const
 {
 	//std::cout << "Copy assignement operator called" << std::endl;
+	if (nb.getRawBits() == 0)
+	{
+		std::cout << "Can't divide by 0!" << std::endl;
+		return (0);
+	}
 	Fixed result;
 
 	result.value = (value * (1 << fraction)) / nb.value;

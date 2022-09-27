@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 18:05:31 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/05/24 18:07:56 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/06/11 12:47:20 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class Harl
 		Harl();
 		~Harl();
 		void complain (std::string level);
+		void printComplaints (int levels);
 
 	private :
 		void debug ();

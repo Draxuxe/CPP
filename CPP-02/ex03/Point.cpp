@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 16:09:17 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/05/30 13:54:56 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/20 12:38:18 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,19 @@ Point &Point::operator=(const Point &nb)
 	if (this == &nb)
 		return (*this);
 	std::cout << "Copy assignement operator called" << std::endl;
+	this->setX(nb.x);
+	this->setY(nb.y);
 	return (*this);
+}
+
+void Point::setX (const Fixed &nb)
+{
+	Fixed *ptr = (Fixed *)(&this->x);
+	*ptr = nb;
+}
+
+void Point::setY (const Fixed &nb)
+{
+	Fixed *ptr = (Fixed *)(&this->y);
+	*ptr = nb;
 }

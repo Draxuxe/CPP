@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 13:37:39 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/06/08 15:18:41 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/26 18:08:23 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,19 @@ Form::~Form()
 	return ;
 }
 
-std::string Form::getName() const
+Form &Form::operator= (const Form &form)
+{
+	if (this == &form)
+		return (*this);
+	(std::string) this->_name = form.getName();
+	this->signe = form.getSigne();
+	this->signedGrade = form.getSignedGrade();
+	this->executeGrade = form.getExecuteGrade();
+	std::cout << "Form copy operator called" << std::endl;
+	return (*this);
+}
+
+const std::string Form::getName() const
 {
 	return (_name);
 }
@@ -79,6 +91,12 @@ bool Form::getSigne() const
 	return (signe);
 }
 
+void Form::setSigne(const int signature)
+{
+	this->signe = signature;
+	return ;
+}
+
 bool Form::beSigned(Bureaucrat &employe)
 {
 	if (employe.getGrade() <= signedGrade && employe.getGrade() > 0 && signe == false)
@@ -94,81 +112,31 @@ void Form::causeRefusal(Bureaucrat &employe)
 {
 	try
 	{
-		if (executeGrade > 150 || executeGrade < 1)
-			throw (executeGrade);
-		else if (signedGrade > 150 || signedGrade < 1)
-			throw (signedGrade);
+		if (executeGrade > 150 || signedGrade > 150)
+			throw (Form::GradeTooLow());
+		else if (executeGrade < 1 || signedGrade < 1)
+			throw (Form::GradeTooHigh());
 		else if (signe == true)
 			std::cout << "This contracts is already signed." << std::endl;
 		else if (employe.getGrade() > signedGrade)
-			throw (employe.getGrade());
+			throw (Form::GradeTooLow());
 	}
-	catch (int e)
+	catch (const std::exception &e)
 	{
-		if (e < 1 || e > 150)
-			std::cout << "this Form wasn't created." << std::endl;
-		else
-			GradeTooLowException();
+		std::cout << e.what() << std::endl;
 		return ;
 	}
 	return ;
 }
 
-void Form::getExecute() const
+const char *Form::GradeTooHigh::what () const throw()
 {
-	return ;
+	return ("I'm sorry your grade is too high. (< 1)");
 }
 
-void Form::execute(Bureaucrat const &executor) const
+const char *Form::GradeTooLow::what () const throw()
 {
-	try
-	{
-		if (signe == false)
-			throw (false);
-		else if (executor.getGrade() > executeGrade)
-			throw (executor.getGrade());
-	}
-	catch (bool e)
-	{
-		if (e == false)
-			std::cout << "This contract wasn't signed." << std::endl;
-		return ;
-	}
-	catch (int e)
-	{
-		std::cout << executor.getName() << " can't execute this contract." << std::endl;
-		return ;
-	}
-	this->getExecute();
-	return ;
-}
-
-void Form::GradeTooHighException ()
-{
-	std::cout << "I'm sorry your grade is too high. (< 1)" << std::endl;
-	return ;
-}
-
-void Form::GradeTooLowException ()
-{
-	std::cout << "Your grade is too low to sign or execute this contract." << std::endl;
-	return ;
-}
-
-void Form::displayInfo (std::ostream &out)
-{
-	if (executeGrade > 150 || executeGrade < 1 || signedGrade > 150 || signedGrade < 1)
-	{
-		std::cout << "This Form wasn't created.";
-		return ;
-	}
-	out << "Name : " << _name << " | Signed : ";
-	if (signe == false)
-		std::cout << "no";
-	else
-		std::cout << "yes";
-	std::cout << " | SignedGrade : " << signedGrade << " | ExecuteGrade : " << executeGrade;
-	return ;
+	return ("Your grade is too low to sign or execute this contract.");
 }
 
 std::ostream &operator << (std::ostream &out, Form& contrat)

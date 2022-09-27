@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 13:37:39 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/06/07 16:47:00 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/22 15:45:50 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ Form::Form(std::string name, int signeGrade, int execute) : _name(name)
 			std::cout << "The grades required for this contract are too low." << std::endl;
 		return ;
 	}
-	(std::string) _name = name;
 	signedGrade = signeGrade;
 	executeGrade = execute;
 	signe = false;
@@ -56,6 +55,18 @@ Form::~Form()
 {
 	std::cout << "Form destructor called." << std::endl;
 	return ;
+}
+
+Form &Form::operator= (const Form &form)
+{
+	if (this == &form)
+		return (*this);
+	//(std::string) this->_name = form.getName(); // Inutile le nom est connstant
+	this->signe = form.getSigne();
+	this->signedGrade = form.getSignedGrade();
+	this->executeGrade = form.getExecuteGrade();
+	std::cout << "Form copy operator called" << std::endl;
+	return (*this);
 }
 
 std::string Form::getName() const
@@ -93,36 +104,31 @@ void Form::causeRefusal(Bureaucrat &employe)
 {
 	try
 	{
-		if (executeGrade > 150 || executeGrade < 1)
-			throw (executeGrade);
-		else if (signedGrade > 150 || signedGrade < 1)
-			throw (signedGrade);
+		if (executeGrade > 150 || signedGrade > 150)
+			throw (Form::GradeTooLow());
+		else if (executeGrade < 1 || signedGrade < 1)
+			throw (Form::GradeTooHigh());
 		else if (signe == true)
 			std::cout << "This contracts is already signed." << std::endl;
 		else if (employe.getGrade() > signedGrade)
-			throw (employe.getGrade());
+			throw (Form::GradeTooLow());
 	}
-	catch (int e)
+	catch (const std::exception &e)
 	{
-		if (e < 1 || e > 150)
-			std::cout << "this Form wasn't created." << std::endl;
-		else
-			GradeTooLowException();
+		std::cout << e.what() << std::endl;
 		return ;
 	}
 	return ;
 }
 
-void Form::GradeTooHighException ()
+const char *Form::GradeTooHigh::what () const throw()
 {
-	std::cout << "I'm sorry your grade is too high. (< 1)" << std::endl;
-	return ;
+	return ("I'm sorry your grade is too high. (< 1)");
 }
 
-void Form::GradeTooLowException ()
+const char *Form::GradeTooLow::what () const throw()
 {
-	std::cout << "Your grade is too low to sign or execute this contract." << std::endl;
-	return ;
+	return ("Your grade is too low to sign or execute this contract.");
 }
 
 void Form::displayInfo (std::ostream &out)

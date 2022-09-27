@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 11:13:28 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/06/09 14:18:34 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/26 18:15:29 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,20 @@ int main()
 {
 	// Intern Test
 	Intern stagiaire;
+	Bureaucrat boss(1, "Boss");
 	Form *rrf;
 
-	rrf = stagiaire.makeForm("robotomy request", "Bob");
-	if (rrf)
-		rrf->getExecute();
+	try
+	{
+		rrf = stagiaire.makeForm("robotomy request", "Bob");
+		boss.signForm(*rrf);
+		boss.executeForm(*rrf);
+		delete rrf;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 
 	// ALL OTHER TESTS FROM THE EXECRCISES FROM BEFORE
 /*	Bureaucrat boss(1, "Boss");

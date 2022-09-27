@@ -6,7 +6,7 @@
 #    By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/18 15:16:34 by lfilloux          #+#    #+#              #
-#    Updated: 2022/05/19 11:46:48 by lfilloux         ###   ########.fr        #
+#    Updated: 2022/09/19 09:46:31 by lfilloux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,5 +30,7 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
+
+re: fclean all
 
 .PHONY: all clean fclean

@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 15:05:00 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/05/20 09:38:02 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/19 10:06:34 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,7 @@ void Account::displayStatus () const
 	Account::_displayTimestamp();
 	std::cout << "index:" << _accountIndex;
 	std::cout << ";amount:" << _amount;
-	std::cout << ";deposit:" << _nbDeposits;
+	std::cout << ";deposits:" << _nbDeposits;
 	std::cout << ";withdrawals:" << _nbWithdrawals << std::endl;
 }
 

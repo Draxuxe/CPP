@@ -13,6 +13,8 @@ class Cure : public AMateria
 		Cure *clone () const;
 		void use(ICharacter &target);
 
+		Cure &operator= (const Cure &);
+
 	private:
 		std::string _type;
 };

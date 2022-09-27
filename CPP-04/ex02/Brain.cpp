@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 11:56:41 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/06/03 14:54:32 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/22 15:08:23 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ Brain::~Brain()
 
 Brain &Brain::operator=(Brain const &brain)
 {
-	std::cout << "Copy brain constructor called." << std::endl;
+	std::cout << "Copy brain operator called." << std::endl;
 	for (int i = 0; i < 100; i ++)
 		this->ideas[i] = brain.ideas[i];
 	return (*this);

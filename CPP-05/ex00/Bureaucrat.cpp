@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 11:13:30 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/06/07 11:51:58 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/22 15:20:19 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,16 @@ Bureaucrat::~Bureaucrat()
 {
 	std::cout << "Bureaucrat destructor called." << std::endl;
 	return ;
+}
+
+Bureaucrat &Bureaucrat::operator= (const Bureaucrat &brt)
+{
+	if (this == &brt)
+		return (*this);
+	this->_name = brt.getName();
+	this->_grade = brt.getGrade();
+	std::cout << "Bureaucrat copy operator called" << std::endl;
+	return (*this);
 }
 
 std::string Bureaucrat::getName() const

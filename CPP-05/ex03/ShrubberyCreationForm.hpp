@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 11:12:01 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/06/08 16:06:06 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/22 16:04:44 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,13 @@ class ShrubberyCreationForm : public Form
 		ShrubberyCreationForm ();
 		ShrubberyCreationForm (std::string const &);
 		ShrubberyCreationForm (const ShrubberyCreationForm &);
-		virtual ~ShrubberyCreationForm ();
+		~ShrubberyCreationForm ();
+
+		ShrubberyCreationForm &operator= (const ShrubberyCreationForm &);
+
+		void execute(Bureaucrat const & executor) const;
+
+		void displayInfo(std::ostream &);
 
 	private :
 		void getExecute() const;

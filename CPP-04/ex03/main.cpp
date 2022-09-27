@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 09:35:39 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/06/07 10:31:55 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/21 14:42:50 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,13 @@
 int main()
 {
 	IMateriaSource* src = new MateriaSource();
+
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
-	ICharacter* me = new Character("me");
-	AMateria* tmp;
 
+	ICharacter* me = new Character("me");
+
+	AMateria* tmp;
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
 	tmp = src->createMateria("cure");

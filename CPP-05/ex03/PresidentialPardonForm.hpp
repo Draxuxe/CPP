@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 11:12:09 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/06/08 15:18:59 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/22 15:29:33 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,13 @@ class PresidentialPardonForm : public Form
 		PresidentialPardonForm();
 		PresidentialPardonForm(std::string const &);
 		PresidentialPardonForm(const PresidentialPardonForm &);
-		virtual ~PresidentialPardonForm();
+		~PresidentialPardonForm();
+
+		PresidentialPardonForm &operator=(const PresidentialPardonForm &);
+
+		void execute(Bureaucrat const & executor) const;
+
+		void displayInfo(std::ostream &);
 
 	private :
 		void getExecute() const;

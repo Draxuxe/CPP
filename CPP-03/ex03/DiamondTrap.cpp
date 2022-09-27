@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 13:58:44 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/06/03 11:07:10 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/27 13:52:07 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,6 @@ DiamondTrap::~DiamondTrap()
 void DiamondTrap::whoAmI ()
 {
 	std::cout << "My name is : " << _name << " and my sub-object name is " << ClapTrap::_name << "." << std::endl;
-	return ;
-}
-
-void DiamondTrap::attack(std::string target)
-{
-	ScavTrap::attack(target);
 	return ;
 }
 

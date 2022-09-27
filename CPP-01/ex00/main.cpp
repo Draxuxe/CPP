@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 09:44:59 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/05/20 11:06:50 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/19 10:14:51 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 int	main(void)
 {
-	Zombie mickael = Zombie ("Mickael");
+	Zombie test = Zombie ("Test");
+	randomChump ("Mickael");
 	Zombie *bob = newZombie ("Bob");
 	bob->announce ();
 	delete bob;
-	mickael.announce ();
-	//bob->announce (); // Error bob is undefined
+	test.announce ();
+	//mickael.announce () // Error Mickael was on the stack but was already deleted;
+	//bob->announce (); // Error bob is undefined;
 	return (0);
 }

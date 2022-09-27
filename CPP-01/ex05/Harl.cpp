@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 14:45:34 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/05/24 17:38:33 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/19 13:33:46 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,22 +63,38 @@ void Harl::complain(std::string level)
 		functions[3] = &Harl::error;
 	};
 
+	i = 0;
+	while (i < 4)
+	{
+		if (level == levels[i])
+			break ;
+		i ++;
+	}
+
 	try {
-		i = 0;
-		while (i < 4)
-		{
-			if (level == levels[i])
-			{
-				(this->*functions[i]) ();
-				return ;
-			}
-			i ++;
-		}
 		if (i == 4)
 			throw (level);
+		switch (i)
+		{
+			case 0:
+				(this->*functions[0]) ();
+				break ;
+			case 1:
+				(this->*functions[1]) ();
+				break ;
+			case 2:
+				(this->*functions[2]) ();
+				break ;
+			case 3:
+				(this->*functions[3]) ();
+				break ;
+			default:
+				break;
+		}
 	}
 	catch (std::string level)
 	{
 		std::cout << "Sorry, " << level << " isn't an existing level of error." << std::endl;
+		return ;
 	}
 }

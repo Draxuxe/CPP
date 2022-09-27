@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 11:56:03 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/06/08 15:18:45 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/22 16:05:24 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,23 +23,34 @@ class Form
 		Form();
 		Form(std::string, int, int);
 		Form(const Form &);
-		~Form();
+		virtual ~Form();
 
-		std::string getName() const;
+		Form &operator= (const Form &);
+
+		const std::string getName() const;
 		int getSignedGrade() const;
 		int getExecuteGrade() const;
 		bool getSigne() const;
 
-		bool beSigned(Bureaucrat &);
-		void causeRefusal(Bureaucrat &);
+		void setSigne (const int);
 
-		void execute(Bureaucrat const & executor) const;
-		virtual void getExecute() const;
+		virtual bool beSigned(Bureaucrat &);
+		virtual void causeRefusal(Bureaucrat &);
 
-		void GradeTooHighException ();
-		void GradeTooLowException ();
+		virtual void getExecute() const = 0;
+		virtual void execute(Bureaucrat const & executor) const = 0;
 
-		void displayInfo(std::ostream &);
+		class GradeTooHigh : public std::exception
+		{
+			virtual const char* what () const throw();
+		};
+		
+		class GradeTooLow : public std::exception
+		{
+			virtual const char* what () const throw();
+		};
+
+		virtual void displayInfo(std::ostream &) = 0;
 
 	private :
 		const std::string _name;

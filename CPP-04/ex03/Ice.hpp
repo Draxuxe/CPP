@@ -8,10 +8,13 @@ class Ice : public AMateria
 {
 	public:
 		Ice ();
+		Ice (const Ice &);
 		~Ice ();
 
 		Ice *clone () const;
 		void use(ICharacter &target);
+
+		Ice &operator= (const Ice &);
 
 	private:
 		std::string _type;

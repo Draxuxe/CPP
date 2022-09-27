@@ -1,15 +1,21 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/09/22 19:14:39 by lfilloux          #+#    #+#              #
+#    Updated: 2022/09/22 19:14:39 by lfilloux         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = real
 
-HEADER_FILES = Base.hpp	\
-			   A.hpp	\
-			   B.hpp	\
-			   C.hpp
+HEADER_FILES = Base.hpp
 
 SRC_FILES = main.cpp	\
-			Base.cpp	\
-			A.cpp		\
-			B.cpp		\
-			C.cpp
+			Base.cpp
 
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
 CPP = c++

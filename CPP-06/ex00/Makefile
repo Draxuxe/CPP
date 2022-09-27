@@ -1,17 +1,24 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/06/10 14:00:33 by lfilloux          #+#    #+#              #
+#    Updated: 2022/09/22 16:24:23 by lfilloux         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = convert
-
-HEADER_FILES = Convert.hpp
-
-SRC_FILES = main.cpp							\
-			Convert.cpp
-
+SRC_FILES = main.cpp
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
-CPP = c++
+CPP = g++
 CPP_FLAGS =  -Wall -Wextra -Werror --std=c++98
 
 all: $(NAME)
 
-%.o: %.cpp $(HEADER_FILES)
+%.o: %.cpp
 	$(CPP) $(CPP_FLAGS) -c $< -o $@
 
 $(NAME): $(OBJ_FILES)

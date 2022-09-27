@@ -7,14 +7,16 @@
 
 MateriaSource::MateriaSource()
 {
-	std::cout << "MateriaSource is created" << std::endl;
+	for (int i = 0; i < 2; i ++)
+		this->storage[i] = 0;
+	//std::cout << "MateriaSource is created" << std::endl;
 	return ;
 }
 
 MateriaSource::~MateriaSource()
 {
-	std::cout << "MateriaSource is deleted" << std::endl;
-		for (int i = 0; i < 4; i ++)
+	//std::cout << "MateriaSource is deleted" << std::endl;
+	for (int i = 0; i < 2; i ++)
 	{
 		if (storage[i])
 			delete storage[i];
@@ -27,18 +29,19 @@ void MateriaSource::learnMateria (AMateria *m)
 	int i;
 
 	i = 0;
-	while (i < 4 && storage[i] != 0)
-		i ++;
-	if (i < 4)
+	for (int j = 0; (storage[j] != 0 && j < 2); j ++)
+			i ++;
+	if (i < 2)
 		storage[i] = m->clone();
-	delete m;
+	if (m)
+		delete m;
 }
 
 AMateria *MateriaSource::createMateria (std::string const &type)
 {
-	for (int i = 0; i < 4 && storage[i]; i ++)
+	for (int i = 0; i < 2; i ++)
 	{
-		if (storage[i]->getType() == type)
+		if (storage[i])
 		{
 			if (type == "ice")
 			{
@@ -55,4 +58,17 @@ AMateria *MateriaSource::createMateria (std::string const &type)
 		}
 	}
 	return (0);
+}
+
+MateriaSource &MateriaSource::operator=(const MateriaSource &ms)
+{
+	if (this == &ms)
+		return (*this);
+	for (int i = 0; i < 2; i ++)
+	{
+		if (ms.storage[i] != 0)
+			this->storage[i] = ms.storage[i];
+	}
+	//std::cout << "MateriaSource copy operator called" << std::endl;
+	return (*this);
 }

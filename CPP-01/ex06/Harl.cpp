@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 18:05:29 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/05/24 18:15:08 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/19 12:27:12 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,21 @@ void Harl::warning(void)
 
 void Harl::error(void)
 {
-	std::cout << "[ERROR]" << std::endl << "Error 404.." << std::endl << std::endl;
+	std::cout << "[ERROR]" << std::endl << "Error 404.." << std::endl;
+}
+
+void Harl::printComplaints(int level)
+{
+	void (Harl::* functions[4]) (void);
+	{
+		functions[0] = &Harl::debug,
+		functions[1] = &Harl::info,
+		functions[2] = &Harl::warning,
+		functions[3] = &Harl::error;
+	};
+
+	while (level < 4)
+		(this->*functions[level++]) ();
 }
 
 void Harl::complain(std::string level)
@@ -63,39 +77,35 @@ void Harl::complain(std::string level)
 		functions[3] = &Harl::error;
 	};
 
+	i = 0;
+	while (i < 4)
+	{
+		if (level == levels[i])
+			break ;
+		i ++;
+	}
+
 	try {
-		i = 0;
-		while (i < 4)
-		{
-			if (level == levels[i])
-			{
-				switch (i)
-				{
-					case 1:
-						while (i < 4)
-							(this->*functions[i++]) ();
-						break ;
-					case 2:
-						while (i < 4)
-							(this->*functions[i++]) ();
-						break ;
-					case 3:
-						while (i < 4)
-							(this->*functions[i++]) ();
-						break ;
-					default:
-						while (i < 4)
-							(this->*functions[i++]) ();
-						break ;
-				}
-			}
-			i ++;
-		}
 		if (i == 4)
 			throw (level);
+		switch (i)
+		{
+			case 0:
+				(this->*functions[0]) ();
+			case 1:
+				(this->*functions[1]) ();
+			case 2:
+				(this->*functions[2]) ();
+			case 3:
+				(this->*functions[3]) ();
+				break ;
+			default:
+				break;
+		}
 	}
 	catch (std::string level)
 	{
 		std::cout << "Sorry, " << level << " isn't an existing level of error." << std::endl;
+		return ;
 	}
 }
