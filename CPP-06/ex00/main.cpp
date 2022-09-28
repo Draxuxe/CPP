@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 10:28:39 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/09/28 11:16:09 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/28 11:45:06 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int isInt(std::string arg, const char *av)
 		for (long unsigned int i = 1; i < arg.length(); i ++)
 			if (!std::isdigit(arg[i]))
 				return (-1);
-		if (std::strcmp(av, "-2147483648") < 0)
+		if (arg.length() == 11 && ::strcmp(av, "-2147483648") > 0)
 			return (1);
 	}
 	else
@@ -45,7 +45,7 @@ int isInt(std::string arg, const char *av)
 		for (long unsigned int i = 0; i < arg.length(); i ++)
 			if (!std::isdigit(arg[i]))
 				return (-1);
-		if (std::strcmp(av, "2147483647") > 0)
+		if (arg.length() == 10 && std::strcmp(av, "2147483647") > 0)
 			return (1);
 	}
 	return (0);
@@ -174,24 +174,28 @@ int main (int ac, char **av)
 			char_ = static_cast<char>(int_);
 			float_ = static_cast<float>(int_);
 			double_ = static_cast<double>(int_);
+			std::cout << "It's an Int." << std::endl;
 			break ;
 		case FLOAT:
 			float_ = std::strtof(av[1], NULL);
 			char_ = static_cast<char>(float_);
 			int_ = static_cast<int>(float_);
 			double_ = static_cast<double>(float_);
+			std::cout << "It's a Float." << std::endl;
 			break ;
 		case DEC:
 			double_ = strtod(av[1], NULL);
 			char_ = static_cast<char>(double_);
 			int_ = static_cast<int>(double_);
 			float_ = static_cast<float>(double_);
+			std::cout << "It's a Double." << std::endl;
 			break ;
 		default:
 			char_ = av[1][0];
 			int_ = static_cast<int>(char_);
 			float_ = static_cast<float>(char_);
 			double_ = static_cast<double>(char_);
+			std::cout << "It's a Char." << std::endl;
 			break ;
 	}
 	printChar(char_, int_);
