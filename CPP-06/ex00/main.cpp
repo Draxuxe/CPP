@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 10:28:39 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/09/27 18:55:01 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/28 11:16:09 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -196,7 +196,7 @@ int main (int ac, char **av)
 	}
 	printChar(char_, int_);
 	printInt (int_, av[1], limite);
-	std::cout << "FLOAT: " << std::fixed << std::setprecision(1) << float_ << "f" << std::endl;
-	std::cout << "DOUBLE: " << std::fixed << std::setprecision(1) << double_ << std::endl;
+	std::cout << "FLOAT: " << std::fixed << std::setprecision(2) << float_ << "f" << std::endl;
+	std::cout << "DOUBLE: " << std::fixed << std::setprecision(2) << double_ << std::endl;
 	return (0);
 }
