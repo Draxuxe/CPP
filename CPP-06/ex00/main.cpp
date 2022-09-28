@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 10:28:39 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/09/28 11:45:06 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/28 11:59:09 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef enum s_type
 	INT,
 	FLOAT,
 	DEC,
+	OUTOFBOUNDS,
 	NONE
 }			t_type;
 
@@ -115,8 +116,10 @@ t_type findType (std::string arg, const char *av)
 		return (CHAR);
 	else if (isFloat(arg))
 		return (FLOAT);
-	else if (isDec(arg) || returnInt == 1)
+	else if (isDec(arg))
 		return (DEC);
+	else if (returnInt == 1)
+		return (OUTOFBOUNDS);
 	return (NONE);
 }
 
@@ -165,6 +168,12 @@ int main (int ac, char **av)
 	if (type_ == NONE && limite == false)
 	{
 		std::cout << "That's a bullshit number here." << std::endl;
+		return (-1);
+	}
+	else if (type_ == OUTOFBOUNDS && limite == false)
+	{
+		std::cout << "This number is an int, but it is out of bounds,";
+		std::cout << " I can't use this number, sorry. Please try again." << std::endl;
 		return (-1);
 	}
 	switch (type_)
