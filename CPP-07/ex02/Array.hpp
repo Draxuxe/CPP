@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 10:18:43 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/09/26 13:20:40 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/29 16:36:40 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Array {
 		};
 		Array<T> (unsigned int n) :  _content(new T[n]()), _n(n) {
 			for (unsigned int i = 0; i < n; i ++)
-				_content[i] = 0;
+				_content[i] = T ();
 			std::cout << "Array size constructor called." << std::endl;
 		};
 		~Array<T> () {
