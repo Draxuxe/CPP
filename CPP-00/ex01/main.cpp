@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 15:16:17 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/05/19 15:18:00 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/29 10:50:56 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int ac, char **av)
 		std::cout << "No arguments needed" << std::endl;
 		return (1);
 	}
-	else if (ac == 1)
+	else
 	{
 		std::string line;
 		std::string number;
@@ -46,7 +46,7 @@ int	main(int ac, char **av)
 			}
 			else if (line == "SEARCH")
 			{
-				if (phonebook.count == 0)
+				if (phonebook.getCount() == 0)
 				{
 					std::cout << "Your repository is empty" << std::endl;
 					continue ;

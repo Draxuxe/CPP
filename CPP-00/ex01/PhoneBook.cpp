@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 15:16:37 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/09/20 16:10:20 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/29 10:50:39 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ Phonebook::Phonebook ()
 Phonebook::~Phonebook ()
 {
 	return ;
+}
+
+int Phonebook::getCount()
+{
+	return (this->count);
 }
 
 void Phonebook::addToRepertory (Contact contact)

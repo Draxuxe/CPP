@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 15:16:27 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/09/20 16:11:08 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/29 11:05:15 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,11 +161,11 @@ void Contact::printTooLong (std::string s)
 	int	j;
 
 	size = s.length();
-	if (size < 9)
+	if (size <= 10)
 	{
-		nb_space = 9 - size;
+		nb_space = 10 - size;
 		j = -1;
-		while (j++ < nb_space / 2)
+		while (++j < nb_space / 2)
 			std::cout << " ";
 		std::cout << s;
 		j += size;
