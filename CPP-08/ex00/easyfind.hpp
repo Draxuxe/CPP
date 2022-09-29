@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 13:32:51 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/09/26 17:48:17 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/29 18:12:11 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int findpos(const T &list, int nb)
 {
 	int j = 1;
 	typename T::const_iterator i = list.begin();
-	typename T::const_iterator end = list.begin();
+	typename T::const_iterator end = list.end();
 
 	while (++i != end)
 	{
