@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 18:19:54 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/09/30 14:04:48 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/30 14:52:37 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,10 +117,17 @@ unsigned long long Span::longestSpan ()
 		if (*i < shortest)
 			shortest = *i;
 	}
-	if (shortest >= 0)
-		return (longest - shortest);
-	shortest *= -1;
-	return (longest + shortest);
+	if (shortest < 0 && longest >= 0)
+	{
+		shortest *= -1;
+		return (longest + shortest);
+	}
+	else if (shortest < 0 && longest < 0)
+	{
+		shortest *= -1;
+		longest *= -1;
+	}
+	return (longest - shortest);
 }
 
 const char *Span::ListComplete::what() const throw()
