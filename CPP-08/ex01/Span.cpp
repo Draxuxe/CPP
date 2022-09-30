@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 18:19:54 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/09/30 14:52:37 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/30 15:52:38 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ unsigned long long Span::shortestSpan ()
 {
 	if (this->_size == 0)
 		throw Span::NoSpan();
-	else if (this->_size == 1)
+	else if (this->list->size() <= 1)
 		throw Span::OneNum();
 	std::vector<int>::const_iterator end = this->list->end();
 	long long shortest_span = MAXVALU;
@@ -105,7 +105,7 @@ unsigned long long Span::longestSpan ()
 {
 	if (this->_size == 0)
 		throw Span::NoSpan();
-	else if (this->_size == 1)
+	else if (this->list->size() <= 1)
 		throw Span::OneNum();
 	std::vector<int>::const_iterator end = this->list->end();
 	long long longest = 0;

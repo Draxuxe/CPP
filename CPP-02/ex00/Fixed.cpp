@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 10:26:20 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/05/25 13:10:25 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/30 15:36:35 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,5 @@ void Fixed::setRawBits (int const raw)
 
 int Fixed::getRawBits () const
 {
-	std::cout << "getRawBits member function called" << std::endl;
 	return (value);
 }
