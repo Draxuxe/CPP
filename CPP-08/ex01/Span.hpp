@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 18:19:18 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/09/30 11:41:28 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/30 15:10:48 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,13 @@ class Span
 		std::vector<int> getList();
 
 		class ListComplete : public std::exception {
-			const char *what() const throw ();
+			public :
+				const char *what() const throw ();
 		};
 
 		class NoSpan : public std::exception {
-			const char *what() const throw ();
+			public :
+				const char *what() const throw ();
 		};
 
 		class OneNum : public std::exception {
