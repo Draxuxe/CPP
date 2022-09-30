@@ -6,13 +6,15 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 18:19:54 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/09/30 11:46:11 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/30 14:04:48 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <vector>
 #include "Span.hpp"
+
+# define MAXVALU 4294967295
 
 Span::Span () : _size(0), list(NULL)
 {
@@ -79,7 +81,7 @@ unsigned long long Span::shortestSpan ()
 	else if (this->_size == 1)
 		throw Span::OneNum();
 	std::vector<int>::const_iterator end = this->list->end();
-	int shortest_span = INT_MAX;
+	long long shortest_span = MAXVALU;
 	for (std::vector<int>::const_iterator actual_i = this->list->begin(); actual_i != end; actual_i++)
 	{
 		for (std::vector<int>::const_iterator i = actual_i + 1; i != end; ++i)
