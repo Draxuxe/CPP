@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 11:43:56 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/09/30 12:14:07 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/30 12:19:41 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int main()
 		HumanB jim("Jim");
 		jim.attack();
 		jim.setWeapon(club);
+		jim.attack();
 		club.setType("some other type of club");
 		jim.attack();
 	}
