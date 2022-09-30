@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 11:28:12 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/05/20 11:39:37 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/30 11:55:09 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int main(void)
 	std::cout << "STRING: " << &phrase << std::endl;
 	std::cout << "PTR: " << ptr << std::endl;
 	std::cout << "REF: " << &ref << std::endl << std::endl;
+
 	std::cout << "STRING: " << phrase << std::endl;
 	std::cout << "PTR: " << *ptr << std::endl;
 	std::cout << "REF: " << ref << std::endl;

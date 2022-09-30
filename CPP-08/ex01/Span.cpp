@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 18:19:54 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/09/27 16:25:01 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/30 11:46:11 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,12 @@ void Span::addNumber (int nb)
 	return ;
 }
 
-int Span::shortestSpan ()
+unsigned long long Span::shortestSpan ()
 {
 	if (this->_size == 0)
 		throw Span::NoSpan();
+	else if (this->_size == 1)
+		throw Span::OneNum();
 	std::vector<int>::const_iterator end = this->list->end();
 	int shortest_span = INT_MAX;
 	for (std::vector<int>::const_iterator actual_i = this->list->begin(); actual_i != end; actual_i++)
@@ -97,13 +99,15 @@ int Span::shortestSpan ()
 	return (shortest_span);
 }
 
-int Span::longestSpan ()
+unsigned long long Span::longestSpan ()
 {
 	if (this->_size == 0)
 		throw Span::NoSpan();
+	else if (this->_size == 1)
+		throw Span::OneNum();
 	std::vector<int>::const_iterator end = this->list->end();
-	int longest = 0;
-	int shortest = INT_MAX;
+	long long longest = 0;
+	long long shortest = INT_MAX;
 	for (std::vector<int>::const_iterator i = this->list->begin(); i != end; ++i)
 	{
 		if (*i > longest)
@@ -111,5 +115,23 @@ int Span::longestSpan ()
 		if (*i < shortest)
 			shortest = *i;
 	}
-	return (longest - shortest);
+	if (shortest >= 0)
+		return (longest - shortest);
+	shortest *= -1;
+	return (longest + shortest);
+}
+
+const char *Span::ListComplete::what() const throw()
+{
+	return ("The Vector is full, sorry.");
+}
+
+const char *Span::NoSpan::what() const throw()
+{
+	return ("There is no Span I'm sorry.");
+}
+
+const char *Span::OneNum::what() const throw()
+{
+	return ("There is only one number to compare, it is impossible sorry.");
 }

@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 18:19:18 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/09/27 16:32:33 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/30 11:41:28 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,20 +39,20 @@ class Span
 			}
 			return ;
 		}
-		int shortestSpan ();
-		int longestSpan ();
+		unsigned long long shortestSpan ();
+		unsigned long long longestSpan ();
 		std::vector<int> getList();
 
 		class ListComplete : public std::exception {
-			const char *what() const throw () {
-				return ("Sorry, but this Span is already full.");
-			}
+			const char *what() const throw ();
 		};
 
 		class NoSpan : public std::exception {
-			const char *what() const throw () {
-				return ("Sorry, but there is no Span.");
-			}
+			const char *what() const throw ();
+		};
+
+		class OneNum : public std::exception {
+			const char *what() const throw ();
 		};
 
 	private :

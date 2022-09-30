@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 18:15:50 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/09/27 16:33:15 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/09/30 12:09:39 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int main()
 {
 	Span sp = Span(5);
 	Span sp1 = Span(10);
+	Span sp2 = Span(0);
 
 	try
 	{
@@ -42,8 +43,9 @@ int main()
 		sp.addNumber(9);
 		sp.addNumber(170);
 
-		int tab[] = { 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121};
+		int tab[] = { 1, -2147483648, 9, 16, 25, 36, 49, 64, 81, 100, 2147483647};
 		sp1.addNumbers(tab, tab + (sizeof(tab) / sizeof(tab[0]))); // Throw an error size exceeded
+		sp2.addNumber(53); 
 		sp.addNumber(53); /* Throw an error size exceeded
 							but will not be test cause already
 							an error before */
@@ -58,6 +60,8 @@ int main()
 		printlist(sp1.getList());
 		std::cout << sp.shortestSpan() << std::endl;
 		std::cout << sp.longestSpan() << std::endl;
+		std::cout << sp1.longestSpan() << std::endl;
+		std::cout << sp2.longestSpan() << std::endl;
 	}
 	catch (std::exception &e)
 	{
