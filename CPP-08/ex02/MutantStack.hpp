@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 11:43:39 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/09/27 13:15:46 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/10/03 16:00:36 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,11 @@ class MutantStack : public std::stack<T>
 			std::cout << "MutantStack surcharged operator called." << std::endl;
 			return (*this);
 		}
+
+		using std::stack<T>::pop;
+		using std::stack<T>::push;
+		using std::stack<T>::size;
+		using std::stack<T>::top;
 
 		typedef typename std::stack<T>::container_type::iterator				iterator;
 		typedef typename std::stack<T>::container_type::const_iterator			const_iterator;
