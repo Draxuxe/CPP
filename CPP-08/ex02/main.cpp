@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 10:50:01 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/09/27 13:19:05 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/10/03 15:51:42 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,14 @@ int main()
 	MutantStack<int>::iterator it = mstack.begin();
 	MutantStack<int>::iterator ite = mstack.end();
 
+	for (MutantStack<int>::iterator itt = mstack.begin(); itt != mstack.end(); itt++)
+		std::cout << *itt << " ";
+	std::cout << std::endl;
+	std::cout << "BEFORE: ++ " << *it << std::endl;
 	++it;
+	std::cout << "AFTER:  ++ " << *it << std::endl;
 	--it;
+	std::cout << "AFTER: -- " << *it << std::endl;
 
 	while (it != ite)
 	{
