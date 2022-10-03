@@ -6,14 +6,15 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 18:19:18 by lfilloux          #+#    #+#             */
-/*   Updated: 2022/09/30 15:52:32 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/10/03 11:30:07 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SPAN_HPP
 # define SPAN_HPP
 
-# include <vector>
+#include <vector>
+#include <algorithm>
 
 class Span
 {
@@ -29,13 +30,14 @@ class Span
 		template <typename T>
 		void addNumbers (T start, T end)
 		{
+			srand(time(NULL));
 			if (_size == 0)
 				throw NoSpan();
 			for (T i = start; i != end; i++)
 			{
 				if (this->list->size() == this->_size)
 					throw ListComplete();
-				addNumber(*i);
+				addNumber(rand());
 			}
 			return ;
 		}
