@@ -15,7 +15,33 @@
 
 # include <iostream>
 # include <map>
+# include <climits>
+#include <string>
 
 std::map<std::string, float> createDataMap();
+std::string findDate(std::string line);
+float findValue(std::string line);
+
+float stringToFloat(std::string line);
+
+float calculateBitcoins(std::map<std::string, float> &myMap, std::string date, float value);
+
+class BadInput : public std::exception {
+			const char *what() const throw() {
+				return ("Error: Bad Input => ");
+			}
+};
+
+class Negative : public std::exception {
+			const char *what() const throw() {
+				return ("Error: not a positive number.");
+			}
+};
+
+class OutOfRange : public std::exception {
+			const char *what() const throw() {
+				return ("Error: number out of range (too large).");
+			}
+};
 
 #endif
