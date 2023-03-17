@@ -6,12 +6,11 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 11:50:44 by lfilloux          #+#    #+#             */
-/*   Updated: 2023/03/15 14:13:03 by lfilloux         ###   ########.fr       */
+/*   Updated: 2023/03/17 11:57:44 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
-#include <fstream>
 
 bool checkFile(char *file)
 {
@@ -43,14 +42,14 @@ void parseLine(std::string line, std::string *date, float *value)
     if (line.find("|") == std::string::npos)
         throw (BadInput());
     int sep = line.find("|");
-    *date = line.substr(0, sep - 2);
+    *date = line.substr(0, sep - 1);
     std::string stringValue = line.substr(sep + 2, line.length() - (sep + 2));
     if (stringValue.empty())
         throw (BadInput());
     else if (stringValue[0] == '-')
         throw (Negative());
     *value = stringToFloat(stringValue);
-    if (*value > INT_MAX)
+    if (*value > 1000)
         throw (OutOfRange());
     
 }
@@ -60,10 +59,10 @@ int main(int ac, char **av)
     if (ac != 2)
     {
         std::cout << "1 argument only is needed, the database file (.txt)" << std::endl;
-        return (0);
+        return (1);
     }
-    if (checkFile(av[1]))
-        return (0);
+    if (checkFile(av[1]) != true)
+        return (1);
     std::string line;
     std::ifstream inputFile(av[1]);
     std::map<std::string, float> myDatabase = createDataMap();
@@ -80,5 +79,5 @@ int main(int ac, char **av)
             std::cerr << e.what() << std::endl;
         }
     }
-    return (1);
+    return (0);
 }
