@@ -19,12 +19,42 @@ int main(int ac, char **av)
         std::cerr << "Arguments are needed (positive numbers)." << std::endl;
         return (1);
     }
-    try {
-        std::list<int> myList = createIntsList(av);
-        std::set<int> mySet = createIntsSet(av);
+    std::list<int> myList;
+    std::deque<int> myQue;
+    try
+    {
+        for (int i = 1; i < ac; i ++)
+        {
+            if (av[i][0] == '-')
+                throw (Negative());
+            for(int j = 0; av[i][j] != '\0'; j ++)
+            {
+                if(av[i][j] < 48 || av[i][j] > 57)
+                    throw (BadInput());
+                else if (j >= 9 && std::strcmp(av[i], "2147483647") > 0)
+                    throw (BadInput());
+            }
+            int num = std::atoi(av[i]);
+            if (checkDuplicate(myQue, num) == false)
+                myQue.push_back(num);
+            myList.remove(num);
+            myList.push_back(num);
+        }
+        myList.unique();
+        std::cout << "Before List : ";
+        printList(myList);
+        std::clock_t listTimeStart = std::clock();
+        sortList(myList, 0, myList.size() - 1);
+        std::clock_t listTimeEnd = std::clock();
+        std::cout << "After List : ";
+        printList(myList);
+        //sortQue(myQue);
+        std::cout << "Time to process a range of " << myList.size() << " elements with std::list : " << std::fixed << std::setprecision(5) << (float)(listTimeEnd - listTimeStart) << " us." << std::endl;
+        std::cout << "Time to process a range of " << myQue.size() << " elements with std::deque : " << std::endl;
     }
     catch (const std::exception &e)
     {
+        std::cerr << e.what() << std::endl;
         return (1);
     }
     return (0);

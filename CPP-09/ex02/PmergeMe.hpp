@@ -15,10 +15,25 @@
 
 # include <iostream>
 # include <list>
-# include <set>
+# include <deque>
+# include <cstdlib>
+# include <cstring>
+# include <ctime>
+# include <iomanip>
 
-std::list<int> createIntsList(char **line);
-std::set<int> createIntsSet(char **line);
+void sortList(std::list<int> &myList, int begin, int end);
+int getIteratorNb(std::list<int> &myList, int i);
+std::list<int>::iterator getIterator(std::list<int> &myList, int i);
+void mergeSortList(std::list<int> &myList, int begin, int mid, int end);
+void printList(std::list<int> &myList);
+
+bool checkDuplicate(std::deque<int> &myQue, int num);
+
+class BadInput : public std::exception {
+			const char *what() const throw() {
+				return ("Error: Bad input.");
+			}
+};
 
 class Negative : public std::exception {
 			const char *what() const throw() {
