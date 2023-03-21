@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 14:12:48 by lfilloux          #+#    #+#             */
-/*   Updated: 2023/03/17 11:53:44 by lfilloux         ###   ########.fr       */
+/*   Updated: 2023/03/21 15:13:12 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ float stringToFloat(std::string line)
 {
     float value;
 
+    //utiliser string stream pour les floats
     std::sscanf(line.c_str(), "%f", &value);
     return (value);
 }
@@ -45,24 +46,23 @@ std::map<std::string, float> createDataMap()
 
 bool checkDate(std::string date)
 {
-    //checker les tailles et si pas empty
     int dateValue;
     std::string year;
     if (date.find("-") == std::string::npos || date.length() < 10)
         return (false);
     year = date.substr(0, date.find_first_of("-"));
     std::string restDate = date.substr(date.find_first_of("-") + 1, date.length());
-    std::sscanf(year.c_str(), "%d", &dateValue);
+    std::sscanf(year.c_str(), "%d", &dateValue); //ici
     if (dateValue < 2009)
         return (false);
     std::string month;
     month = restDate.substr(0, restDate.find_first_of("-"));
-    std::sscanf(month.c_str(), "%d", &dateValue);
+    std::sscanf(month.c_str(), "%d", &dateValue); //ici
     if (dateValue < 1 || dateValue > 12)
         return (false);
     std::string day;
     day = restDate.substr(restDate.find_first_of("-") + 1, restDate.length());
-    std::sscanf(day.c_str(), "%d", &dateValue);
+    std::sscanf(day.c_str(), "%d", &dateValue); //ici
     if (dateValue > 31)
         return (false);
     return (true);

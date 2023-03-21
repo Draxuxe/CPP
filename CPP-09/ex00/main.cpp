@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 11:50:44 by lfilloux          #+#    #+#             */
-/*   Updated: 2023/03/17 11:57:44 by lfilloux         ###   ########.fr       */
+/*   Updated: 2023/03/21 15:13:29 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int main(int ac, char **av)
         try {
             std::string date;
             float value;
-            parseLine(line, &date, &value);
+            parseLine(line, &date, &value); // parser plusieurs pipes et plusieurs points et si lettre ou quoi
             calculateBitcoins(myDatabase, date, value);
         }
         catch (const std::exception &e)
