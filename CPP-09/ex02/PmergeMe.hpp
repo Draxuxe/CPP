@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 13:04:27 by lfilloux          #+#    #+#             */
-/*   Updated: 2023/03/17 13:33:48 by lfilloux         ###   ########.fr       */
+/*   Updated: 2023/03/21 10:28:44 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ void mergeSortList(std::list<int> &myList, int begin, int mid, int end);
 void printList(std::list<int> &myList);
 
 bool checkDuplicate(std::deque<int> &myQue, int num);
+void sortQue(std::deque<int> &myQue, int begin, int end);
+void mergeSortQue(std::deque<int> &myQue, int begin, int mid, int end);
+void printQue(std::deque<int> &myQue);
 
 class BadInput : public std::exception {
 			const char *what() const throw() {
