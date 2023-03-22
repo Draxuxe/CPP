@@ -15,9 +15,22 @@
 float stringToFloat(std::string line)
 {
     float value;
+    std::stringstream ss;
+    bool point = false;
 
-    //utiliser string stream pour les floats
-    std::sscanf(line.c_str(), "%f", &value);
+    ss << line;
+    for (int i = 0; line[i]; i ++)
+    {
+        if (std::isdigit(line[i]))
+            ss >> value;
+        else if (!std::isdigit(line[i]) && line[i] == '.' && point == false)
+        {
+            point = true;
+            ss >> value;
+        }
+        else if ((!std::isdigit(line[i]) && point == true) || (!std::isdigit(line[i]) && line[i] != '.' && point == false))
+            throw (BadInput());
+    }
     return (value);
 }
 
@@ -47,23 +60,22 @@ std::map<std::string, float> createDataMap()
 bool checkDate(std::string date)
 {
     int dateValue;
-    std::string year;
-    if (date.find("-") == std::string::npos || date.length() < 10)
-        return (false);
-    year = date.substr(0, date.find_first_of("-"));
-    std::string restDate = date.substr(date.find_first_of("-") + 1, date.length());
-    std::sscanf(year.c_str(), "%d", &dateValue); //ici
+    std::stringstream year;
+    std::stringstream month;
+    std::stringstream day;
+
+    year << date.substr(0, 4);
+    month << date.substr(6,8);
+    day << date.substr(10,12);
+
+    year >> dateValue;
     if (dateValue < 2009)
         return (false);
-    std::string month;
-    month = restDate.substr(0, restDate.find_first_of("-"));
-    std::sscanf(month.c_str(), "%d", &dateValue); //ici
+    month >> dateValue;
     if (dateValue < 1 || dateValue > 12)
         return (false);
-    std::string day;
-    day = restDate.substr(restDate.find_first_of("-") + 1, restDate.length());
-    std::sscanf(day.c_str(), "%d", &dateValue); //ici
-    if (dateValue > 31)
+    day >> dateValue;
+    if (dateValue < 1 || dateValue > 31)
         return (false);
     return (true);
 }

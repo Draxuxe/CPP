@@ -37,11 +37,39 @@ bool checkFile(char *file)
     return (true);
 }
 
+bool checkLine(std::string line)
+{
+    for (int i = 0; line[i]; i ++)
+    {
+        if (i == 0 || i == 1 || i == 2 || i == 3 || i == 5 || i == 6 || i == 8 || i == 9 || i == 13)
+        {
+            if (!std::isdigit(line[i]))
+                return (false);
+        }
+        else if (i == 4 || i == 7)
+        {
+            if (line[i] != '-')
+                return (false);
+        }
+        else if (i == 10 || i == 12)
+        {
+            if (line[i] != ' ')
+                return (false);
+        }
+        else if (i == 11)
+        {
+            if (line[i] != '|')
+                return (false);
+        }
+    }
+    return (true);
+}
+
 void parseLine(std::string line, std::string *date, float *value)
 {
-    if (line.find("|") == std::string::npos)
+    if (checkLine(line) == false)
         throw (BadInput());
-    int sep = line.find("|");
+    int sep = line.find_first_of("|");
     *date = line.substr(0, sep - 1);
     std::string stringValue = line.substr(sep + 2, line.length() - (sep + 2));
     if (stringValue.empty())

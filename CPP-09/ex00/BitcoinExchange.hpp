@@ -19,12 +19,14 @@
 # include <string>
 # include <cstdio>
 # include <fstream>
+# include <sstream>
 
 std::map<std::string, float> createDataMap();
 std::string findDate(std::string line);
 float findValue(std::string line);
 
 bool checkDate(std::string date);
+bool checkLine(std::string line);
 
 float stringToFloat(std::string line);
 
