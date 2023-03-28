@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 14:12:48 by lfilloux          #+#    #+#             */
-/*   Updated: 2023/03/21 15:13:12 by lfilloux         ###   ########.fr       */
+/*   Updated: 2023/03/28 12:35:41 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,18 +84,21 @@ void calculateBitcoins(std::map<std::string, float> &myMap, std::string date, fl
 {
     if (checkDate(date) != true)
         throw(BadInput());
-    if (myMap.find(date) != myMap.end())
-    {
+    else if (myMap.find(date) != myMap.end())
         std::cout << date << " => " << value << " = " << myMap.find(date)->second * value << std::endl;
-    }
     else
     {
         std::map<std::string, float>::iterator it = myMap.lower_bound(date);
+        if (it == myMap.end())
+        {
+            std::cout << date << " => " << value << " = " << std::fixed << std::setprecision(2) << myMap.rbegin()->second * value << std::endl;
+            return ;
+        }
         std::map<std::string, float>::iterator start;
         for (start = myMap.begin(); start != myMap.end(); start ++)
         {
             std::map<std::string, float>::iterator tmp = start;
-            if ((++tmp)->first == it->first)
+            if ((++tmp) != myMap.end() && (tmp->first == it->first))
                 break ;
         }
         std::cout << date << " => " << value << " = " << start->second * value << std::endl;
